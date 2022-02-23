@@ -116,15 +116,15 @@ export class AppComponent extends React.Component<Props, State> {
 				>
 					<div style={{left: '50px', top: '50px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{(this.state.data.length) ? this.state.data[0]['title'] : ''}</h1>
-							<p>{(this.state.data.length) ? this.state.data[0]['text'] : ''}</p>							
+							<h1>{(this.state.data.contents) ? this.state.data['contents'][0]['title'] : ''}</h1>
+							<p>{(this.state.data.contents) ? this.state.data['contents'][0]['text'] : ''}</p>							
 						</div>
 					</div>
 
 					<div style={{left: '3550px', top: '3550px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{(this.state.data.length) ? this.state.data[1]['title'] : ''}</h1>
-							<p>{(this.state.data.length) ? this.state.data[1]['text'] : ''}</p>
+							<h1>{(this.state.data.contents) ? this.state.data['contents'][1]['title'] : ''}</h1>
+							<p>{(this.state.data.contents) ? this.state.data['contents'][1]['text'] : ''}</p>
 						</div>
 					</div>
 				</ParallaxMap>
