@@ -1,11 +1,4 @@
 {
-    "contents":
-      {
-        "id": 1,
-        "title": "REACT PARALLAX MAP",
-        "text": "React component with TypeScript for making parallax effect in React with using parallax maps"
-      },
-    "profile": {
-      "name": "Simon Parallax Map"
-    }
+    "contents": "REACT PARALLAX MAP",
+    "text": "React component with TypeScript for making parallax effect in React with using parallax maps"
 }

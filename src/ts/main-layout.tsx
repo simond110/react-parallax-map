@@ -114,15 +114,15 @@ export class AppComponent extends React.Component<Props, State> {
 				>
 					<div style={{left: '50px', top: '50px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{this.state.data['contents']['title']}</h1>
-							<p>{this.state.data['contents']['text']}</p>							
+							<h1>{this.state.data['contents']}</h1>
+							<p>{this.state.data['contents']}</p>							
 						</div>
 					</div>
 
 					<div style={{left: '3550px', top: '3550px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{this.state.data['contents']['title']}</h1>
-							<p>{this.state.data['contents']['text']}</p>
+							<h1>{this.state.data['contents']}</h1>
+							<p>{this.state.data['contents']}</p>
 						</div>
 					</div>
 				</ParallaxMap>
