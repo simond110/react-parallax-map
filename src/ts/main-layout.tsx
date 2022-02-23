@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {ParallaxMap} from "./index";
-//import {useGetText} from "./use-queries";
 import axios from 'axios';
 
 export interface Props {
@@ -71,6 +70,8 @@ let layerTest = [
 	{start: 5200, end: 5500, beginX: -11500, x: -11500, beginY: -9000, y: -9000, radius: 0},
 ];
 
+const API_URI = "https://my-json-server.typicode.com/simond110/react-parallax-map/db";
+
 export class AppComponent extends React.Component<Props, State> {
 	state: State = {
 		scrollTop: 0,
@@ -79,10 +80,11 @@ export class AppComponent extends React.Component<Props, State> {
 
 	componentDidMount() {
 		window.addEventListener('scroll', this.scrollHandler);	
-		axios.get(`https://my-json-server.typicode.com/simond110/react-parallax-map/db`)
+		axios.get(API_URI)
 		.then(res => {
 			const data = res.data;
 			this.setState({ data: data });			
+			console.log(data);
 		})	
 	}
 
@@ -114,15 +116,15 @@ export class AppComponent extends React.Component<Props, State> {
 				>
 					<div style={{left: '50px', top: '50px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{this.state.data['contents']}</h1>
-							<p>{this.state.data['contents']}</p>							
+							<h1>{(this.state.data.length) ? this.state.data[0]['title'] : ''}</h1>
+							<p>{(this.state.data.length) ? this.state.data[0]['text'] : ''}</p>							
 						</div>
 					</div>
 
 					<div style={{left: '3550px', top: '3550px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{this.state.data['contents']}</h1>
-							<p>{this.state.data['contents']}</p>
+							<h1>{(this.state.data.length) ? this.state.data[1]['title'] : ''}</h1>
+							<p>{(this.state.data.length) ? this.state.data[1]['text'] : ''}</p>
 						</div>
 					</div>
 				</ParallaxMap>
