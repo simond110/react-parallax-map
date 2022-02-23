@@ -28,6 +28,7 @@
 		"url": "https://github.com/egorovsa/react-parallax-map"
 	},
 	"dependencies": {
+		"axios": "^0.26.0",
 		"react": "^16.3.2",
 		"react-dom": "^16.3.2"
 	}

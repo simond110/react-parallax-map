@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {ParallaxMap} from "./index";
+import {useGetText} from "./use-queries";
 
 export interface Props {
 }
@@ -68,6 +69,7 @@ let layerTest = [
 	{start: 5200, end: 5500, beginX: -11500, x: -11500, beginY: -9000, y: -9000, radius: 0},
 ];
 
+const data = useGetText('https://github.com/simond110/react-parallax-map/db');
 
 export class AppComponent extends React.Component<Props, State> {
 	state: State = {
@@ -106,18 +108,15 @@ export class AppComponent extends React.Component<Props, State> {
 				>
 					<div style={{left: '50px', top: '50px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>REACT PARALLAX MAP</h1>
-							<p> React component with TypeScript for making parallax effect in React with using parallax
-								maps</p>
+							<h1>{data['contents'][0]['title']}</h1>
+							<p>{data['contents'][0]['text']}</p>
 						</div>
 					</div>
 
 					<div style={{left: '3550px', top: '3550px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>How to install</h1>
-							<p>
-
-							</p>
+							<h1>{data['contents'][1]['title']}</h1>
+							<p>{data['contents'][1]['text']}</p>
 						</div>
 					</div>
 				</ParallaxMap>
