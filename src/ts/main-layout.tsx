@@ -1,12 +1,14 @@
 import * as React from 'react';
 import {ParallaxMap} from "./index";
-import {useGetText} from "./use-queries";
+//import {useGetText} from "./use-queries";
+import axios from 'axios';
 
 export interface Props {
 }
 
 export interface State {
 	scrollTop: number
+	data: any
 }
 
 let layerData = [
@@ -69,19 +71,23 @@ let layerTest = [
 	{start: 5200, end: 5500, beginX: -11500, x: -11500, beginY: -9000, y: -9000, radius: 0},
 ];
 
-const data = useGetText('https://github.com/simond110/react-parallax-map/db');
-
 export class AppComponent extends React.Component<Props, State> {
 	state: State = {
-		scrollTop: 0
+		scrollTop: 0,
+		data: []
 	};
 
 	componentDidMount() {
-		window.addEventListener('scroll', this.scrollHandler);
+		window.addEventListener('scroll', this.scrollHandler);	
+		axios.get(`https://my-json-server.typicode.com/simond110/react-parallax-map/db`)
+		.then(res => {
+			const data = res.data;
+			this.setState({ data: data });			
+		})	
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.scrollHandler);
+		window.removeEventListener('scroll', this.scrollHandler);		
 	}
 
 	private scrollHandler = (e) => {
@@ -90,7 +96,7 @@ export class AppComponent extends React.Component<Props, State> {
 		} as State)
 	};
 
-	public render() {
+	public render() {		
 		return (
 			<div>
 				<ParallaxMap
@@ -108,15 +114,15 @@ export class AppComponent extends React.Component<Props, State> {
 				>
 					<div style={{left: '50px', top: '50px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{data['contents'][0]['title']}</h1>
-							<p>{data['contents'][0]['text']}</p>
+							<h1>{this.state.data['contents']['title']}</h1>
+							<p>{this.state.data['contents']['text']}</p>							
 						</div>
 					</div>
 
 					<div style={{left: '3550px', top: '3550px'}} className="test-layer-blocks">
 						<div className="content">
-							<h1>{data['contents'][1]['title']}</h1>
-							<p>{data['contents'][1]['text']}</p>
+							<h1>{this.state.data['contents']['title']}</h1>
+							<p>{this.state.data['contents']['text']}</p>
 						</div>
 					</div>
 				</ParallaxMap>

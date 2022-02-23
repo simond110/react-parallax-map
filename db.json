@@ -1,16 +1,10 @@
 {
-    "contents": [
+    "contents":
       {
         "id": 1,
         "title": "REACT PARALLAX MAP",
         "text": "React component with TypeScript for making parallax effect in React with using parallax maps"
       },
-      {
-        "id": 2,
-        "title": "How to install",
-        "text": "Follow Me!"
-      }
-    ],
     "profile": {
       "name": "Simon Parallax Map"
     }
